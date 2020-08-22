@@ -1,14 +1,26 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="dark">
+      <ion-title>
+        To Do App
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+<ion-content padding class = "Screen">
+  <p>This is a To Do app for recruitment</p>
+  <ion-list>
+    <ion-item *ngFor = "let item of tasks" class="Item">
+      {{item}}
+      <button ion-button round item-end (click) = "deleteItem(item)"><ion-icon name="trash"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="light" (click) = "newTask()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <ion-fab left bottom>
+    <button ion-fab color="light" (click) = "deleteConfirm()"><ion-icon name="trash"></ion-icon></button>
+  </ion-fab>
+  <ion-fab center bottom>
+    <button ion-fab (click) = "refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
 </ion-content>

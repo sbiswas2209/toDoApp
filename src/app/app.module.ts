@@ -6,20 +6,29 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { NewTaskPage } from '../pages/new-task/new-task';
+
+import { IonicStorageModule } from '@ionic/storage';
+import { DeleteConfirmPage } from '../pages/delete-confirm/delete-confirm';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    NewTaskPage,
+    DeleteConfirmPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    NewTaskPage,
+    DeleteConfirmPage
   ],
   providers: [
     StatusBar,
