@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { NewTaskPage } from '../new-task/new-task';
 import { DeleteConfirmPage } from '../delete-confirm/delete-confirm';
 import { Storage } from '@ionic/storage';
+import { SignUpPage } from '../sign-up/sign-up';
+import { EditTaskPage } from '../edit-task/edit-task';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +12,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-  tasks = [];
+  tasks;
 
   constructor(public navCtrl: NavController, public storage: Storage) {
 
@@ -25,7 +27,9 @@ export class HomePage {
     this.tasks = [];
     this.storage.forEach((value , key) => {
       this.tasks.push(value);
+      console.log(this.tasks);
     });
+    
   }
 
   refresh(){
@@ -43,6 +47,23 @@ export class HomePage {
 
   deleteConfirm(){
     this.navCtrl.push(DeleteConfirmPage);
+  }
+
+  editTask(item: any){
+    this.tasks.splice(0, this.tasks.length-1);
+    console.log(item);
+    var title = item.title;
+    console.log(title);
+    var content = item.content;
+    this.navCtrl.push(EditTaskPage, {title , content});
+    this.storage.forEach((value , key) => {
+      this.tasks.push(value);
+      console.log(this.tasks);
+    });
+  }
+
+  logOut(){
+    this.navCtrl.setRoot(SignUpPage);
   }
 
 }

@@ -17,6 +17,7 @@ import { Storage } from '@ionic/storage';
 export class NewTaskPage {
 
   public title: any;
+  public content: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , public storage: Storage) {
   }
@@ -27,7 +28,10 @@ export class NewTaskPage {
 
   saveTask(){
 
-    this.storage.set(`${this.title}` , this.title);
+    this.storage.set(`${this.title}` , {
+      title : this.title,
+      content : this.content,
+    });
 
     this.navCtrl.pop();
 

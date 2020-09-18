@@ -11,12 +11,19 @@ import { NewTaskPage } from '../pages/new-task/new-task';
 import { IonicStorageModule } from '@ionic/storage';
 import { DeleteConfirmPage } from '../pages/delete-confirm/delete-confirm';
 
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { LoginPage } from '../pages/login/login';
+import { EditTaskPage } from '../pages/edit-task/edit-task';
+
 @NgModule({
   declarations: [
     MyApp,
+    SignUpPage,
+    LoginPage,
     HomePage,
     NewTaskPage,
-    DeleteConfirmPage
+    DeleteConfirmPage,
+    EditTaskPage,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +33,12 @@ import { DeleteConfirmPage } from '../pages/delete-confirm/delete-confirm';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    SignUpPage,
+    LoginPage,
     HomePage,
     NewTaskPage,
-    DeleteConfirmPage
+    DeleteConfirmPage,
+    EditTaskPage
   ],
   providers: [
     StatusBar,
