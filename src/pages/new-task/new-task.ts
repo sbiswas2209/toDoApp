@@ -28,13 +28,16 @@ export class NewTaskPage {
 
   saveTask(){
 
-    this.storage.set(`${this.title}` , {
-      title : this.title,
-      content : this.content,
-    });
-
-    this.navCtrl.pop();
-
+    this.storage.get('tasks').then(
+      (val) => {
+        val.push({
+          title: this.title,
+          content: this.content,
+        });
+        this.storage.set('tasks', val);
+      }
+    );
+      this.navCtrl.pop();
   }
 
 }

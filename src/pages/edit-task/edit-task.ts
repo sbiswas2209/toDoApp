@@ -20,6 +20,7 @@ export class EditTaskPage {
   public content: any;
   public item: any;
   public originalTitle: any;
+  public tasks: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,  public toastCtrl: ToastController) {
 
@@ -27,32 +28,34 @@ export class EditTaskPage {
 
   }
 
+
+
   ionViewDidLoad(){
-    console.log('ionViewDidLoad EditTaskPage');
-    this.title = this.navParams.get('title');
-    this.content = this.navParams.get('content');
-    this.originalTitle = this.title;
-    console.log(`Original : ${this.originalTitle}`);
-    console.log(this.title);
-    console.log(this.content);
+
+    this.tasks = this.navParams.get('tasks');
+    this.item = this.navParams.get('item');
+    console.log(this.tasks);
+    console.log(this.item);
+    this.title = this.item.title;
+    this.content = this.item.content;
+    
   }
 
   editTask(){
-    this.storage.remove(`${this.originalTitle}`).then((val) => {
-      this.storage.set(`${this.title}`, {
-        title: this.title,
-        content: this.content,
-      });
+    var index = this.tasks.indexOf(this.item);
+    this.tasks.splice(index, 1, {
+      title: this.title,
+      content: this.content
     });
-    
-    this.toast('Edited Task!');
+    this.storage.set('tasks', this.tasks);
+    this.toast('Edited Task');
     this.navCtrl.pop();
   }
 
   toast(message){
     let toast = this.toastCtrl.create({
       'message' : `${message}`,
-      'duration' : 3000,
+      'duration' : 2000,
       'position' : 'bottom'
     });
 

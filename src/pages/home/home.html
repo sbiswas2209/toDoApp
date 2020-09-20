@@ -13,7 +13,7 @@
   <p>This is a To Do app</p>
   <ion-list>
     <ion-item *ngFor = "let item of tasks" class="Item">
-      {{item['title']}}
+      {{item.title}}
       <button ion-button round item-end (click)="editTask(item)"><ion-icon name="ios-create-outline"></ion-icon></button>
       <button ion-button round item-end (click) = "deleteItem(item)"><ion-icon name="trash"></ion-icon></button>
     </ion-item>
