@@ -14,6 +14,11 @@
       <ion-label floating>Task Content</ion-label>
       <ion-input type="text" [(ngModel)] = 'content'></ion-input>
     </ion-item>
+    <ion-img [src]="picture" *ngIf="picture != null" style="height: fit-content;"></ion-img>
+  <ion-row style="align-items: center;">
+    <button ion-button item-end (click) = 'savePhoto()' round *ngIf="picture != null">Change Photo</button>
+    <button ion-button item-end (click) = 'savePhoto()' round *ngIf="picture == null">Add Photo</button>
+  </ion-row>
     <ion-row style="align-items: center; padding-top: 10px;">
       <button ion-button item-end (click) = 'editTask()' round>Edit Task</button>
     </ion-row>
