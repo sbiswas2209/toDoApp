@@ -14,6 +14,7 @@ import { DeleteConfirmPage } from '../pages/delete-confirm/delete-confirm';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { LoginPage } from '../pages/login/login';
 import { EditTaskPage } from '../pages/edit-task/edit-task';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { EditTaskPage } from '../pages/edit-task/edit-task';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
