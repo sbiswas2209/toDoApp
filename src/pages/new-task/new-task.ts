@@ -10,7 +10,6 @@ import { Camera , CameraOptions } from '@ionic-native/camera';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-new-task',
   templateUrl: 'new-task.html',
@@ -47,7 +46,7 @@ export class NewTaskPage {
   savePhoto(){
 
     const options: CameraOptions = {
-      quality: 100,
+      quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,

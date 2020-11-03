@@ -10,7 +10,6 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-edit-task',
   templateUrl: 'edit-task.html',

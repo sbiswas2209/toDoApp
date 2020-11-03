@@ -10,7 +10,6 @@ import { Storage } from '@ionic/storage';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-delete-confirm',
   templateUrl: 'delete-confirm.html',

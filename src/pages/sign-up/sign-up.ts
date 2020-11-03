@@ -12,7 +12,6 @@ import { ToastController } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-sign-up',
   templateUrl: 'sign-up.html',
